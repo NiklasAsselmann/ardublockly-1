@@ -41,7 +41,7 @@ Ardublockly.injectBlockly = function(blocklyEl, toolboxXml, blocklyPath) {
       css: true,
       disable: true,
       grid: false,
-      maxBlocks: Infinity,
+      maxBlocks: 5,
       media: blocklyPath + '/media/',
       rtl: false,
       scrollbars: true,
@@ -60,18 +60,32 @@ Ardublockly.injectBlockly = function(blocklyEl, toolboxXml, blocklyPath) {
   // On language change the blocks have been stored in session storage
   Ardublockly.loadSessionStorageBlocks();
 };
-
+ 
 /** Binds the event listeners relevant to Blockly. */
 Ardublockly.bindBlocklyEventListeners = function() {
   Ardublockly.workspace.addChangeListener(function(event) {
     if (event.type != Blockly.Events.UI) {
       Ardublockly.renderContent();
+      var AllBlocks= (Ardublockly.workspace.getAllBlocks())
+      document.getElementById('capacity').textContent =
+      Ardublockly.workspace.remainingCapacity();
+      document.getElementById('used_blocks').textContent =
+      AllBlocks.length;
+      for (var i = 0; i <= AllBlocks.length; i++) {
+        checkParent(AllBlocks[i])
+      }
+      document.getElementById('active_blocks').textContent =usedBlocks+1
+      var maxBlocks = 100
+      document.getElementById('capacity').textContent =
+      maxBlocks-usedBlocks-1
+      usedBlocks=0
     }
   });
   // Ensure the Blockly workspace resizes accordingly
   window.addEventListener('resize',
       function() { Blockly.asyncSvgResize(Ardublockly.workspace); }, false);
 };
+
 
 /** @return {!string} Generated Arduino code from the Blockly workspace. */
 Ardublockly.generateArduino = function() {
@@ -324,3 +338,19 @@ Ardublockly.ajaxRequest = function() {
   }
   return request;
 };
+
+var usedBlocks=0
+function checkParent(Object) {
+  if(Object!=null){
+    if(Object.parentBlock_!=null){
+      if(Object.parentBlock_ != "arduino_functions"){
+        checkParent(Object.parentBlock_)
+      }
+      if(Object.parentBlock_.type == "arduino_functions"){
+        usedBlocks=usedBlocks+1
+      }
+    }
+  }
+}
+  
+

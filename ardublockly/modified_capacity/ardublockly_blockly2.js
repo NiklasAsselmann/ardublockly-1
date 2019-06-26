@@ -41,7 +41,7 @@ Ardublockly.injectBlockly = function(blocklyEl, toolboxXml, blocklyPath) {
       css: true,
       disable: true,
       grid: false,
-      maxBlocks: 7,
+      maxBlocks: Infinity,
       media: blocklyPath + '/media/',
       rtl: false,
       scrollbars: true,
@@ -71,11 +71,14 @@ Ardublockly.bindBlocklyEventListeners = function() {
       Ardublockly.workspace.remainingCapacity();
       document.getElementById('used_blocks').textContent =
       AllBlocks.length;
-      if (AllBlocks[1] != undefined && AllBlocks[2] != undefined && AllBlocks[3] != undefined){
-        console.log(AllBlocks[1].type)
-        console.log(AllBlocks[2].type)
-        console.log(AllBlocks[3].type)
+      for (var i = 0; i <= AllBlocks.length; i++) {
+        checkParent(AllBlocks[i])
       }
+      document.getElementById('active_blocks').textContent =usedBlocks+1
+      var maxBlocks = 2
+      document.getElementById('capacity').textContent =
+      maxBlocks-usedBlocks-1
+      usedBlocks=0
     }
   });
   // Ensure the Blockly workspace resizes accordingly
@@ -186,61 +189,39 @@ Ardublockly.loadSessionStorageBlocks = function() {
   }
 };
 
-/** Check Tutorials Tutorial */
+/** Check Tutorials Function */
 Ardublockly.finish_tutorial = function() {
   var AllBlocks= (Ardublockly.workspace.getAllBlocks())
       if(AllBlocks[1] != null && AllBlocks[1].parentBlock_ != null){
         if(AllBlocks[1].parentBlock_.inputList[1].renderHeight==25){
-          if (AllBlocks[1].type ="sensebox_led"){
-            if(AllBlocks[2] != undefined && AllBlocks[2].type =="time_delay"){
-              if(AllBlocks[3] != null && AllBlocks[3].type== "math_number"){
-                if(AllBlocks[4] != null && AllBlocks[4].type== "sensebox_led"){
-                  if(AllBlocks[5] != null && AllBlocks[5].type== "time_delay"){
-                    if(AllBlocks[6] != null && AllBlocks[6].type== "math_number"){
-                      Ardublockly.alertMessage(
-                        "Alles Richtig Goldmedallie verdient",
-                        false);
-                    }
-                    else{
-                      Ardublockly.alertMessage(
-                        "Falscher/fehlender 7. Block",
-                        false);
-                    }
-                  }
-                  else{
-                    Ardublockly.alertMessage(
-                      "Falscher/fehlender 6. Block",
-                      false);
-                  }
+          if (AllBlocks[1].type =="sensebox_led"){
+            if(AllBlocks[1].inputList[0].fieldRow[2].text_=="BUILTIN_1"){
+              if(AllBlocks[1].inputList[0].fieldRow[4].text_=="on"){
+                Ardublockly.alertMessage(
+                  "Alles Richtig",
+                  false);
                 }
-                else{
-                  Ardublockly.alertMessage(
-                    "Falscher/fehlender 5. Block",
-                    false);
-                }
-              }
               else{
                 Ardublockly.alertMessage(
-                  "Falscher/fehlender 4. Block",
+                  "Die Lampe muss angeschaltet werden",
                   false);
+                }
               }
-            }
             else{
               Ardublockly.alertMessage(
-                "Falscher/fehlender 3. Block",
+                "Der angeschlossene Pin ist falsch",
                 false);
             }
-            }
+          }
           else{
             Ardublockly.alertMessage(
-              "Falscher/fehlender 2. Block",
+              "Falscher Block",
               false);
             }
-          }
-        else{
-          Ardublockly.alertMessage(
-            "Blöcke bitte in den Loop",
-            false);
+        }
+        else{Ardublockly.alertMessage(
+          "Blöcke bitte in den Loop",
+          false);
           }
         }
       else{
@@ -249,6 +230,7 @@ Ardublockly.finish_tutorial = function() {
           false);
       }   
 }
+
 
 /** Discard all blocks from the workspace. */
 Ardublockly.discardAllBlocks = function() {
@@ -398,3 +380,19 @@ Ardublockly.ajaxRequest = function() {
   }
   return request;
 };
+
+var usedBlocks=0
+function checkParent(Object) {
+  if(Object!=null){
+    if(Object.parentBlock_!=null){
+      if(Object.parentBlock_ != "arduino_functions"){
+        checkParent(Object.parentBlock_)
+      }
+      if(Object.parentBlock_.type == "arduino_functions"){
+        usedBlocks=usedBlocks+1
+      }
+    }
+  }
+}
+  
+
