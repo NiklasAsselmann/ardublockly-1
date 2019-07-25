@@ -339,6 +339,11 @@ Ardublockly.ajaxRequest = function() {
   return request;
 };
 
+document.getElementById('checks').textContent =0
+document.getElementById('hints').textContent =0
+var hints=0
+var checks=0
+
 /** Check Tutorials Function */
 Ardublockly.finish_tutorial = function() {
   var AllBlocks= (Ardublockly.workspace.getAllBlocks())
@@ -377,14 +382,44 @@ Ardublockly.finish_tutorial = function() {
                     if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1] != undefined && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].type=="math_number"){
                       if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[0].text_ == "1000"){
                         if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_<AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_=="<"){
-                          Ardublockly.alertMessage(
-                            "Glückwunsch,alles Richtig",
-                            false);
+                          if(hints<=2 && checks<5){
+                            Ardublockly.alertMessage(
+                              "Glückwunsch. Alles Richtig",
+                              "Du hast dir eine Goldmedallie erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                              false);
+                          }
+                          else if(hints>2 && checks >5){
+                            Ardublockly.alertMessage(
+                              "Glückwunsch. Alles Richtig",
+                              "Du hast dir eine Goldmedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                              false);
+                          }
+                          else{
+                            Ardublockly.alertMessage(
+                              "Glückwunsch. Alles Richtig",
+                              "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                              false);
+                          }
                         }
                         else if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_>AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_==">"){
-                          Ardublockly.alertMessage(
-                            "Glückwunsch,alles Richtig",
-                            false);
+                          if(hints<=2 && checks<5){
+                            Ardublockly.alertMessage(
+                              "Glückwunsch. Alles Richtig",
+                              "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                              false);
+                          }
+                          else if(hints>2 && checks >5){
+                            Ardublockly.alertMessage(
+                              "Glückwunsch. Alles Richtig",
+                              "Du hast dir eine Bronzemedallie erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                              false);
+                          }
+                          else{
+                            Ardublockly.alertMessage(
+                              "Glückwunsch. Alles Richtig",
+                              "Du hast dir eine Silbermedallie erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                              false);
+                          }
                         }
                         else{
                           Ardublockly.alertMessage(
@@ -457,7 +492,44 @@ Ardublockly.finish_tutorial = function() {
       "Bitte Blöcke einfügen",
       false);
   } 
-usedBlocks=0                
+usedBlocks=0    
+checks=checks+1
+document.getElementById('checks').textContent = checks            
+}
+
+Ardublockly.hint = function() {
+  if(hints==0){
+    Ardublockly.alertMessage(
+    "Du musst jeden Block nur einmal benutzen",
+    false);
+    hints=hints+1
+    document.getElementById('hints').textContent = hints
+  }
+  else{
+    if(hints==1){
+      Ardublockly.alertMessage(
+      "In den Do-Teil der Logischen-Verzweigung muss nur ein Block",
+      false);
+      hints=hints+1
+      document.getElementById('hints').textContent = hints
+      }
+    else{
+      if(hints==2){
+        Ardublockly.alertMessage(
+          "Der Vergleichs-Operator muss an die IF-Bedingung gehängt werden",
+          false);
+          hints=hints+1
+          document.getElementById('hints').textContent = hints
+      }
+      else{
+      Ardublockly.alertMessage(
+        "Alle Hints benutzt. Diese waren:",
+        "1. Du musst jeden Block nur einmal benutzen<br> 2. In den Do-Teil der Logischen-Verzweigung muss nur ein Block <br> 3. Der Vergleichs-Operator muss an die IF-Bedingung gehängt werden" ,
+        false);
+        document.getElementById('hints').textContent = hints
+      }
+    }
+  }
 }
 
 var usedBlocks=0

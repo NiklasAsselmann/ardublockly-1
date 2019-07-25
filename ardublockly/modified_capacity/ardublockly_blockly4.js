@@ -209,6 +209,11 @@ Ardublockly.discardAllBlocks = function() {
   }
 };
 
+document.getElementById('checks').textContent =0
+document.getElementById('hints').textContent =0
+var hints=0
+var checks=0
+
 /** Check Tutorials Function */
 Ardublockly.finish_tutorial = function() {
   var AllBlocks= (Ardublockly.workspace.getAllBlocks())
@@ -221,6 +226,7 @@ Ardublockly.finish_tutorial = function() {
         if(AllBlocks[0].inputList[3].renderHeight==24){
           if(usedBlocks<=9){
             if (AllBlocks[0].childBlocks_[0].type ="controls_repeat_ext"){
+              //Block Changer
               if(AllBlocks[0].childBlocks_[0].childBlocks_[0] != undefined && AllBlocks[0].childBlocks_[0].childBlocks_[1]!=undefined){
                 if(AllBlocks[0].childBlocks_[0].childBlocks_[0].type=="sensebox_led" && AllBlocks[0].childBlocks_[0].childBlocks_[1].type=="math_number"){
                   var ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[0]
@@ -256,9 +262,24 @@ Ardublockly.finish_tutorial = function() {
                                       }
                                       if(AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[0]!= null && AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[0].type== "math_number"){
                                         if(AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[0].inputList[0].fieldRow[0].text_ == "1000"){
-                                          Ardublockly.alertMessage(
-                                            "Alles richtig, Goldmedallie verdient",
-                                            false);
+                                          if(hints<=1 && checks<5){
+                                            Ardublockly.alertMessage(
+                                              "Glückwunsch. Alles Richtig",
+                                              "Du hast dir eine Goldmedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                                              false);
+                                          }
+                                          else if(hints>1 && checks >5){
+                                            Ardublockly.alertMessage(
+                                              "Glückwunsch. Alles Richtig",
+                                              "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                                              false);
+                                          }
+                                          else{
+                                            Ardublockly.alertMessage(
+                                              "Glückwunsch. Alles Richtig",
+                                              "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                                              false);
+                                          }
                                         }
                                         else{
                                           Ardublockly.alertMessage(
@@ -350,8 +371,35 @@ Ardublockly.finish_tutorial = function() {
         "Bitte Blöcke einfügen",
         false);
       }
-      usedBlocks=0
-                    
+      usedBlocks=0   
+      checks=checks+1
+      document.getElementById('checks').textContent = checks             
+}
+
+Ardublockly.hint = function() {
+  if(hints==0){
+    Ardublockly.alertMessage(
+    "Es müssen 6 Blöcke in den do Block des Loops",
+    false);
+    hints=hints+1
+    document.getElementById('hints').textContent = hints
+  }
+  else{
+    if(hints==1){
+      Ardublockly.alertMessage(
+      "Der Teil im do Block sieht exakt so aus wie der aus Tutorial Nr. 2",
+      false);
+      hints=hints+1
+      document.getElementById('hints').textContent = hints
+      }
+    else{
+      Ardublockly.alertMessage(
+        "Alle Hints benutzt. Diese waren:",
+        "1. Es müssen 6 Blöcke in den do Block des Loops <br> 2. Der Teil im do Block sieht exakt so aus wie der aus Tutorial Nr. 2",
+        false);
+        document.getElementById('hints').textContent = hints
+    }
+  }
 }
 
 /** @return {!boolean} Indicates if the Blockly workspace has blocks. */
