@@ -197,6 +197,7 @@ document.getElementById('checks').textContent =0
 document.getElementById('hints').textContent =0
 var hints=0
 var checks=0
+var medalearned=false
 
 /** Check Tutorials Function */
 Ardublockly.finish_tutorial = function() {
@@ -226,22 +227,33 @@ Ardublockly.finish_tutorial = function() {
                           if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].childBlocks_[0] != null && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].type == "time_delay"){
                             if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[0] != null && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[0].type =="math_number"){
                               if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[0].inputList[0].fieldRow[0].text_ == "1000"){
-                                if(hints==0 && checks<3){
-                                  Ardublockly.alertMessage(
-                                    "Glückwunsch. Alles Richtig",
-                                    "Du hast dir eine Goldmedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
-                                    false);
-                                }
-                                else if(hints>0 && checks >3){
-                                  Ardublockly.alertMessage(
-                                    "Glückwunsch. Alles Richtig",
-                                    "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
-                                    false);
+                                if(medalearned==false){
+                                  if(hints==0 && checks<3){
+                                    Ardublockly.alertMessage(
+                                      "Glückwunsch. Alles Richtig",
+                                      "Du hast dir eine Goldmedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                                      false);
+                                      medalearned=true
+                                  }
+                                  else if(hints>0 && checks >3){
+                                    Ardublockly.alertMessage(
+                                      "Glückwunsch. Alles Richtig",
+                                      "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                                      false);
+                                      medalearned=true
+                                  }
+                                  else{
+                                    Ardublockly.alertMessage(
+                                      "Glückwunsch. Alles Richtig",
+                                      "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                                      false);
+                                      medalearned=true
+                                  }
                                 }
                                 else{
                                   Ardublockly.alertMessage(
-                                    "Glückwunsch. Alles Richtig",
-                                    "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                                    "Du hast breits eine Medaille verdient",
+                                    "Starte jetzt das nächste Tutorial",
                                     false);
                                 }
                               }

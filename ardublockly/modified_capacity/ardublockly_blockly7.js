@@ -60,26 +60,12 @@ Ardublockly.injectBlockly = function(blocklyEl, toolboxXml, blocklyPath) {
   // On language change the blocks have been stored in session storage
   Ardublockly.loadSessionStorageBlocks();
 };
- 
+
 /** Binds the event listeners relevant to Blockly. */
 Ardublockly.bindBlocklyEventListeners = function() {
   Ardublockly.workspace.addChangeListener(function(event) {
     if (event.type != Blockly.Events.UI) {
       Ardublockly.renderContent();
-      var AllBlocks= (Ardublockly.workspace.getAllBlocks())
-      document.getElementById('capacity').textContent =
-      Ardublockly.workspace.remainingCapacity();
-      document.getElementById('used_blocks').textContent =
-      AllBlocks.length;
-      for (var i = 0; i <= AllBlocks.length; i++) {
-        checkParent(AllBlocks[i])
-      }
-      document.getElementById('active_blocks').textContent =usedBlocks+1
-      var maxBlocks = 2
-      document.getElementById('capacity').textContent =
-      maxBlocks-usedBlocks-1
-      usedBlocks=0
-      console.log(AllBlocks[1])
     }
   });
   // Ensure the Blockly workspace resizes accordingly
@@ -189,86 +175,6 @@ Ardublockly.loadSessionStorageBlocks = function() {
     Blockly.Xml.domToWorkspace(xml, Ardublockly.workspace);
   }
 };
-
-document.getElementById('checks').textContent =0
-document.getElementById('hints').textContent =0
-var hints=0
-var checks=0
-var medalearned=false
-
-/** Check Tutorials Function */
-Ardublockly.finish_tutorial = function() {
-  var AllBlocks= (Ardublockly.workspace.getAllBlocks())
-  for (var i = 0; i <= AllBlocks.length; i++) {
-    checkParent(AllBlocks[i])
-  }
-  usedBlocks=usedBlocks+1
-  if(AllBlocks[0] != null && AllBlocks[0].childBlocks_[0] != null){
-        if(AllBlocks[0].inputList[1].renderHeight==25){
-          if(usedBlocks<=2){
-            if(AllBlocks[0].childBlocks_[0].type =="sensebox_led"){
-              if(AllBlocks[0].childBlocks_[0].inputList[0].fieldRow[2].text_=="BUILTIN_1"){
-                if(AllBlocks[0].childBlocks_[0].inputList[0].fieldRow[4].text_=="on"){
-                  if(medalearned==false){
-                    Ardublockly.alertMessage(
-                      "Glückwunsch.Alles Richtig",
-                      "Jetzt einfach nur noch hochladen",
-                      false);
-                      medalearned=true
-                  }
-                  else{
-                    Ardublockly.alertMessage(
-                      "Du has das Tutorial bereits geschafft",
-                      "Starte jetzt das nächste Tutorial",
-                      false);
-                  }
-                }
-                else{
-                  Ardublockly.alertMessage(
-                    "Die Lampe muss angeschaltet werden",
-                    false);
-                  }
-                }
-              else{
-                Ardublockly.alertMessage(
-                  "Der angeschlossene Pin ist falsch",
-                  false);
-              }
-            }
-            else{
-              Ardublockly.alertMessage(
-                "Falscher Block",
-                false);
-              }
-          }
-          else{
-            Ardublockly.alertMessage(
-              "Zu viele aktive Blöcke",
-              false);
-          }
-        }
-        else{Ardublockly.alertMessage(
-          "Blöcke bitte in den Loop",
-          false);
-          }
-        }
-      else{
-        Ardublockly.alertMessage(
-          "Bitte Blöcke einfügen",
-          false);
-      }  
-  usedBlocks =0
-  checks=checks+1
-  document.getElementById('checks').textContent = checks
-}
-
-Ardublockly.hint = function() {
-  Ardublockly.alertMessage(
-    "Hier werden deine Hint stehen",
-    false);
-    hints=hints+1
-    document.getElementById('hints').textContent = hints
-  }
 
 /** Discard all blocks from the workspace. */
 Ardublockly.discardAllBlocks = function() {
@@ -419,18 +325,15 @@ Ardublockly.ajaxRequest = function() {
   return request;
 };
 
-var usedBlocks=0
-function checkParent(Object) {
-  if(Object!=null){
-    if(Object.parentBlock_!=null){
-      if(Object.parentBlock_ != "arduino_functions"){
-        checkParent(Object.parentBlock_)
-      }
-      if(Object.parentBlock_.type == "arduino_functions"){
-        usedBlocks=usedBlocks+1
-      }
-    }
-  }
-}
-  
 
+function getURLParameter(name) {
+  var value = decodeURIComponent((RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, ""])[1]);
+  return (value !== 'null') ? value : false;
+}
+ 
+var Gold = getURLParameter('Gold')
+var Silver = getURLParameter('Silver')
+var Bronze = getURLParameter('Bronze')
+document.getElementById('gold').textContent = Gold
+document.getElementById('silber').textContent = Silver
+document.getElementById('bronze').textContent = Bronze
