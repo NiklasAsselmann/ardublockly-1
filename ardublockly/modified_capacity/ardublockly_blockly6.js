@@ -390,27 +390,27 @@ Ardublockly.finish_tutorial = function() {
                             if(hints<=2 && checks<5){
                               Ardublockly.alertMessage(
                                 "Glückwunsch. Alles Richtig",
-                                "Du hast dir eine Goldmedallie erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                                "Du hast dir eine Goldmedallie erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
                                 false);
                                 medalearned=true
-                                Gold+=1;
+                                Gold++;
                                 
                             }
                             else if(hints>2 && checks >5){
                               Ardublockly.alertMessage(
                                 "Glückwunsch. Alles Richtig",
-                                "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                                "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
                                 false);
                                 medalearned=true
-                                Bronze=Bronze+1
+                                Bronze++
                             }
                             else{
                               Ardublockly.alertMessage(
                                 "Glückwunsch. Alles Richtig",
-                                "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                                "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
                                 false);
                                 medalearned=true
-                                Silver=Silver+1
+                                Silver++
                             }
                           }
                           else{
@@ -425,26 +425,26 @@ Ardublockly.finish_tutorial = function() {
                             if(hints<=2 && checks<5){
                               Ardublockly.alertMessage(
                                 "Glückwunsch. Alles Richtig",
-                                "Du hast dir eine Goldmedallie erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                                "Du hast dir eine Goldmedallie erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
                                 false);
                                 medalearned=true
-                                Gold+=1;
+                                Gold++;
                             }
                             else if(hints>2 && checks >5){
                               Ardublockly.alertMessage(
                                 "Glückwunsch. Alles Richtig",
-                                "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                                "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
                                 false);
                                 medalearned=true
-                                Bronze=Bronze+1
+                                Bronze++
                             }
                             else{
                               Ardublockly.alertMessage(
                                 "Glückwunsch. Alles Richtig",
-                                "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
+                                "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
                                 false);
                                 medalearned=true
-                                Silver=Silver+1
+                                Silver++
                             }
                           }
                           else{
@@ -584,7 +584,6 @@ function openUrl()
   if(medalearned==true){
     var url1 = "index7.html";
     var url = url1+"?Gold="+Gold+"&Silver="+Silver+"&Bronze="+Bronze;		
-    console.log(url)
     window.location = url;
   }
   else{
@@ -592,7 +591,6 @@ function openUrl()
       "Du hast noch keine Medallie verdient",
       false);
   }
- 
 }		
 
 function getURLParameter(name) {

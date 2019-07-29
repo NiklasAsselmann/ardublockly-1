@@ -79,7 +79,6 @@ Ardublockly.bindBlocklyEventListeners = function() {
       document.getElementById('capacity').textContent =
       maxBlocks-usedBlocks-1
       usedBlocks=0
-      console.log(AllBlocks[1])
     }
   });
   // Ensure the Blockly workspace resizes accordingly
@@ -195,6 +194,9 @@ document.getElementById('hints').textContent =0
 var hints=0
 var checks=0
 var medalearned=false
+var Gold=0
+var Silver=0
+var Bronze=0
 
 /** Check Tutorials Function */
 Ardublockly.finish_tutorial = function() {
@@ -212,13 +214,13 @@ Ardublockly.finish_tutorial = function() {
                   if(medalearned==false){
                     Ardublockly.alertMessage(
                       "Glückwunsch.Alles Richtig",
-                      "Jetzt einfach nur noch hochladen",
+                      "Jetzt einfach nur noch hochladen und mit den richtigen Tutorials anfangen",
                       false);
                       medalearned=true
                   }
                   else{
                     Ardublockly.alertMessage(
-                      "Du has das Tutorial bereits geschafft",
+                      "Du hast das Tutorial bereits geschafft",
                       "Starte jetzt das nächste Tutorial",
                       false);
                   }
@@ -265,6 +267,7 @@ Ardublockly.finish_tutorial = function() {
 Ardublockly.hint = function() {
   Ardublockly.alertMessage(
     "Hier werden deine Hint stehen",
+    "schau mal wie sich die Anzahl erhöht",
     false);
     hints=hints+1
     document.getElementById('hints').textContent = hints
@@ -433,4 +436,16 @@ function checkParent(Object) {
   }
 }
   
-
+function openUrl()
+{
+  if(medalearned==true){
+    var url1 = "index3.html";
+    var url = url1+"?Gold="+Gold+"&Silver="+Silver+"&Bronze="+Bronze;		
+    window.location = url;
+  }
+  else{
+    Ardublockly.alertMessage(
+      "Du hast noch keine Medallie verdient",
+      false);
+  }
+}		
