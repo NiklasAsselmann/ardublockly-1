@@ -67,10 +67,6 @@ Ardublockly.bindBlocklyEventListeners = function() {
     if (event.type != Blockly.Events.UI) {
       Ardublockly.renderContent();
       var AllBlocks= (Ardublockly.workspace.getAllBlocks())
-      document.getElementById('capacity').textContent =
-      Ardublockly.workspace.remainingCapacity();
-      document.getElementById('used_blocks').textContent =
-      AllBlocks.length;
       for (var i = 0; i <= AllBlocks.length; i++) {
         checkParent(AllBlocks[i])
       }
