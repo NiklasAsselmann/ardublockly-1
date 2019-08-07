@@ -75,6 +75,7 @@ Ardublockly.bindBlocklyEventListeners = function() {
       document.getElementById('capacity').textContent =
       maxBlocks-usedBlocks-1
       usedBlocks=0
+      console.log(medalearned)
     }
   });
   // Ensure the Blockly workspace resizes accordingly
@@ -363,7 +364,7 @@ Ardublockly.finish_tutorial = function() {
                   AllBlocks[0].childBlocks_[0]=AllBlocks[0].childBlocks_[1]
                   AllBlocks[0].childBlocks_[1]=ChangeBlock
                 }
-                }
+              }
                 if(AllBlocks[0].childBlocks_[1].type=="sensebox_display_show"){
                   if(AllBlocks[0].childBlocks_[1].inputList[1].renderHeight>24){
                     //Block Changer
@@ -378,16 +379,26 @@ Ardublockly.finish_tutorial = function() {
                           if(AllBlocks[0].childBlocks_[1].childBlocks_[0].inputList[4].renderHeight==26){
                             if(AllBlocks[0].childBlocks_[1].childBlocks_[0].inputList[5].renderHeight==50){
                               if(AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_.length == 4){
-                                if(AllBlocks[0].childBlocks_[1].childBlocks_[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[1].type=="sensebox_display_clearDisplay"){
-                                  checkFontSize(AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[0],
-                                                AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[1],
-                                                AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[2],
-                                                AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[3]
-                                  )
-                              }
+                                if(AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[0].inputList[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[1].text_=="Illuminance in Lux" ||
+                                   AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].inputList[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].inputList[1].fieldRow[1].text_=="Illuminance in Lux" || 
+                                   AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[2].inputList[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[2].inputList[1].fieldRow[1].text_=="Illuminance in Lux" ||
+                                   AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[3].inputList[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[3].inputList[1].fieldRow[1].text_=="Illuminance in Lux" ){
+                                  if(AllBlocks[0].childBlocks_[1].childBlocks_[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[1].type=="sensebox_display_clearDisplay"){
+                                    checkFontSize(AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[0],
+                                                  AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[1],
+                                                  AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[2],
+                                                  AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[3]
+                                    )
+                                  }
+                                  else{
+                                    Ardublockly.alertMessage(
+                                      "Falscher neunter Block",
+                                      false);
+                                  }
+                                }
                                 else{
                                   Ardublockly.alertMessage(
-                                    "Falscher neunter Block",
+                                    "Der neunte Block hat die falschen Eigenschaften",
                                     false);
                                 }
                               }
@@ -566,7 +577,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
   }
   if(Object2.outputConnection.y_==ValuetoUSE){
     if(Object2.inputList[0].fieldRow[0].text_ == "1"){
-      if(medalearned=false){
+      if(medalearned==false){
         if(hints<=2 && checks<4){
           Ardublockly.alertMessage(
             "Glückwunsch. Alles Richtig",
@@ -607,7 +618,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
   }
   if(Object3.outputConnection.y_==ValuetoUSE){
     if(Object3.inputList[0].fieldRow[0].text_ == "1"){
-      if(medalearned=false){
+      if(medalearned==false){
         if(hints<=2 && checks<4){
           Ardublockly.alertMessage(
             "Glückwunsch. Alles Richtig",
@@ -649,7 +660,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
   }
   if(Object4.outputConnection.y_==ValuetoUSE){
     if(Object4.inputList[0].fieldRow[0].text_ == "1"){
-      if(medalearned=false){
+      if(medalearned==false){
         if(hints<=2 && checks<4){
           Ardublockly.alertMessage(
             "Glückwunsch. Alles Richtig",

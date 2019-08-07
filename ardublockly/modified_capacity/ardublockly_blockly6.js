@@ -379,92 +379,99 @@ Ardublockly.finish_tutorial = function() {
                   }
                   // Block Changer 
                   if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0] != undefined && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].type=="sensebox_sensor_uv_light"){
-                    if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1] != undefined && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].type=="math_number"){
-                      if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[0].text_ == "1000"){
-                        if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_<AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_=="<"){
-                          if(medalearned==false){
-                            if(hints<=2 && checks<5){
-                              Ardublockly.alertMessage(
-                                "Glückwunsch. Alles Richtig",
-                                "Du hast dir eine Goldmedallie erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
-                                false);
-                                medalearned=true
-                                Gold++;
-                                
-                            }
-                            else if(hints>2 && checks >5){
-                              Ardublockly.alertMessage(
-                                "Glückwunsch. Alles Richtig",
-                                "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
-                                false);
-                                medalearned=true
-                                Bronze++
+                    if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[1].text_=="Illuminance in Lux"){
+                      if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1] != undefined && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].type=="math_number"){
+                        if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[0].text_ == "1000"){
+                          if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_<AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_=="<"){
+                            if(medalearned==false){
+                              if(hints<=2 && checks<5){
+                                Ardublockly.alertMessage(
+                                  "Glückwunsch. Alles Richtig",
+                                  "Du hast dir eine Goldmedallie erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
+                                  false);
+                                  medalearned=true
+                                  Gold++;
+                                  
+                              }
+                              else if(hints>2 && checks >5){
+                                Ardublockly.alertMessage(
+                                  "Glückwunsch. Alles Richtig",
+                                  "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
+                                  false);
+                                  medalearned=true
+                                  Bronze++
+                              }
+                              else{
+                                Ardublockly.alertMessage(
+                                  "Glückwunsch. Alles Richtig",
+                                  "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
+                                  false);
+                                  medalearned=true
+                                  Silver++
+                              }
                             }
                             else{
                               Ardublockly.alertMessage(
-                                "Glückwunsch. Alles Richtig",
-                                "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
+                                "Du hast breits eine Medaille verdient",
+                                "Gehe jetzt weiter zum Fazit",
                                 false);
-                                medalearned=true
-                                Silver++
+                            }
+                          }
+                          else if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_>AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_==">"){
+                            if(medalearned==false){
+                              if(hints<=2 && checks<5){
+                                Ardublockly.alertMessage(
+                                  "Glückwunsch. Alles Richtig",
+                                  "Du hast dir eine Goldmedallie erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
+                                  false);
+                                  medalearned=true
+                                  Gold++;
+                              }
+                              else if(hints>2 && checks >5){
+                                Ardublockly.alertMessage(
+                                  "Glückwunsch. Alles Richtig",
+                                  "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
+                                  false);
+                                  medalearned=true
+                                  Bronze++
+                              }
+                              else{
+                                Ardublockly.alertMessage(
+                                  "Glückwunsch. Alles Richtig",
+                                  "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
+                                  false);
+                                  medalearned=true
+                                  Silver++
+                              }
+                            }
+                            else{
+                              Ardublockly.alertMessage(
+                                "Du hast breits eine Medaille verdient",
+                                "Gehe jetzt weiter zum Fazit",
+                                false);
                             }
                           }
                           else{
                             Ardublockly.alertMessage(
-                              "Du hast breits eine Medaille verdient",
-                              "Gehe jetzt weiter zum Fazit",
-                              false);
-                          }
-                        }
-                        else if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_>AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_==">"){
-                          if(medalearned==false){
-                            if(hints<=2 && checks<5){
-                              Ardublockly.alertMessage(
-                                "Glückwunsch. Alles Richtig",
-                                "Du hast dir eine Goldmedallie erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
-                                false);
-                                medalearned=true
-                                Gold++;
-                            }
-                            else if(hints>2 && checks >5){
-                              Ardublockly.alertMessage(
-                                "Glückwunsch. Alles Richtig",
-                                "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
-                                false);
-                                medalearned=true
-                                Bronze++
-                            }
-                            else{
-                              Ardublockly.alertMessage(
-                                "Glückwunsch. Alles Richtig",
-                                "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
-                                false);
-                                medalearned=true
-                                Silver++
-                            }
-                          }
-                          else{
-                            Ardublockly.alertMessage(
-                              "Du hast breits eine Medaille verdient",
-                              "Gehe jetzt weiter zum Fazit",
+                              "Die Eigenschaft des Logic-Compare Blocks ist falsch",
                               false);
                           }
                         }
                         else{
                           Ardublockly.alertMessage(
-                            "Die Eigenschaft des Logic-Compare Blocks ist falsch",
+                            "Der Math-Number Block hat die falschen Eigenschaften",
                             false);
                         }
                       }
                       else{
                         Ardublockly.alertMessage(
-                          "Der Math-Number Block hat die falschen Eigenschaften",
+                          "Fehlender/Falscher sechster Block",
                           false);
                       }
                     }
                     else{
                       Ardublockly.alertMessage(
-                        "Fehlender/Falscher sechster Block",
+                        "Der LUX-Sensorwert hat die falschen Eigenschaften",
                         false);
                     }
                   }
