@@ -705,7 +705,7 @@ function openUrl()
 {
   if(medalearned==true){
     var url1 = "index6.html";
-    var url = url1+"?Gold="+Gold+"&Silver="+Silver+"&Bronze="+Bronze;		
+    var url = url1+"?Gold="+Gold+"&Silver="+Silver+"&Bronze="+Bronze+"&board=sensebox-mcu";		
     window.location = url;
   }
   else{

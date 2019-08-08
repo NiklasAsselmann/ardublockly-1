@@ -205,7 +205,7 @@ Ardublockly.finish_tutorial = function() {
         if(AllBlocks[0].inputList[1].renderHeight==25){
           if(usedBlocks<=2){
             if(AllBlocks[0].childBlocks_[0].type =="sensebox_led"){
-              if(AllBlocks[0].childBlocks_[0].inputList[0].fieldRow[2].text_=="BUILTIN_1"){
+              if(AllBlocks[0].childBlocks_[0].inputList[0].fieldRow[2].text_=="D1"){
                 if(AllBlocks[0].childBlocks_[0].inputList[0].fieldRow[4].text_=="on"){
                   if(medalearned==false){
                     Ardublockly.alertMessage(
@@ -436,7 +436,7 @@ function openUrl()
 {
   if(medalearned==true){
     var url1 = "index3.html";
-    var url = url1+"?Gold="+Gold+"&Silver="+Silver+"&Bronze="+Bronze;		
+    var url = url1+"?Gold="+Gold+"&Silver="+Silver+"&Bronze="+Bronze+"&board=sensebox-mcu";		
     window.location = url;
   }
   else{
