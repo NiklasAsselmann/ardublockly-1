@@ -238,7 +238,7 @@ Ardublockly.finish_tutorial = function() {
                   if(AllBlocks[0].childBlocks_[0].childBlocks_[1]!=undefined){
                     if(AllBlocks[0].childBlocks_[0].childBlocks_[2]==undefined && AllBlocks[0].childBlocks_[0].inputList[2].renderHeight>=30){
                       if(AllBlocks[0].childBlocks_[0].childBlocks_[1] != null && AllBlocks[0].childBlocks_[0].childBlocks_[1].type== "sensebox_led"){
-                        if(AllBlocks[0].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[2].text_=="BUILTIN_1" && AllBlocks[0].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[4].text_=="on"){
+                        if(AllBlocks[0].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[2].text_=="D1" && AllBlocks[0].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[4].text_=="on"){
                           if(AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0] != null && AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].type== "time_delay"){
                             if(AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[0] != undefined && AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1]!=undefined){
                               if(AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[0].type=="sensebox_led" && AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].type=="math_number"){
@@ -250,7 +250,7 @@ Ardublockly.finish_tutorial = function() {
                             if(AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[0] != null && AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[0].type== "math_number"){
                               if(AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[0].inputList[0].fieldRow[0].text_ == "1000"){
                                 if(AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1] != null && AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].type== "sensebox_led"){
-                                  if(AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[2].text_=="BUILTIN_1" && AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[4].text_=="off"){
+                                  if(AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[2].text_=="D1" && AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[4].text_=="off"){
                                     if(AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].childBlocks_[0]!= null && AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].childBlocks_[0].type== "time_delay"){
                                       if(AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[0]!= null && AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1]!= null){
                                         if(AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[0].type== "sensebox_led" && AllBlocks[0].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].type== "math_number"){
@@ -564,7 +564,7 @@ function openUrl()
 {
   if(medalearned==true){
     var url1 = "index5.html";
-    var url = url1+"?Gold="+Gold+"&Silver="+Silver+"&Bronze="+Bronze;		
+    var url = url1+"?Gold="+Gold+"&Silver="+Silver+"&Bronze="+Bronze+"&board=sensebox-mcu";		
     window.location = url;
   }
   else{
