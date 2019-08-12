@@ -471,6 +471,7 @@ Ardublockly.finish_tutorial = function() {
         else{
           Ardublockly.alertMessage(
             "Bitte Blöcke einfügen",
+            "Wenn du den lila Block gelöscht hast, einfach neu laden",
             false);
         }
       usedBlocks=0   

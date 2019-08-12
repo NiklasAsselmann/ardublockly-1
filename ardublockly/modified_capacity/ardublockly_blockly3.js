@@ -279,7 +279,7 @@ Ardublockly.finish_tutorial = function() {
                         }
                         else{
                           Ardublockly.alertMessage(
-                            "Die Eigenschaften des zweiten Sensebox_LED Blockes sind falsch",
+                            "Die Eigenschaften(Pin oder Status) des zweiten Sensebox_LED Blockes sind falsch",
                             false);
                         }
                       }
@@ -309,7 +309,7 @@ Ardublockly.finish_tutorial = function() {
                 }
               else{
                 Ardublockly.alertMessage(
-                  "Die Eigenschaften des ersten Sensebox_LED Blockes sind falsch",
+                  "Die Eigenschaften(Pin oder Status) des ersten Sensebox_LED Blockes sind falsch",
                   false);
               }
             }
@@ -333,6 +333,7 @@ Ardublockly.finish_tutorial = function() {
       else{
         Ardublockly.alertMessage(
           "Bitte Blöcke einfügen",
+          "Wenn du den lila Block gelöscht hast, einfach neu laden",
           false);
       } 
   usedBlocks=0  
