@@ -75,6 +75,7 @@ Ardublockly.bindBlocklyEventListeners = function() {
       document.getElementById('capacity').textContent =
       maxBlocks-usedBlocks-1
       usedBlocks=0
+      console.log(AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_)
     }
   });
   // Ensure the Blockly workspace resizes accordingly
@@ -417,7 +418,8 @@ Ardublockly.finish_tutorial = function() {
                         if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[1].text_=="Illuminance in Lux"){
                           if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1] != undefined && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].type=="math_number"){
                             if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[0].text_ == "500"){
-                              if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_>AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_=="<"){
+                              if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_>AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_=="<" ||
+                                 AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_>AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_=="≤"){
                                 if(medalearned==false){
                                   if(hints<=2 && checks<5){
                                     Ardublockly.alertMessage(
@@ -452,7 +454,8 @@ Ardublockly.finish_tutorial = function() {
                                     false);
                                 }
                               }
-                              else if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_<AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_==">"){
+                              else if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_<AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_==">" ||
+                                      AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_<AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_=="≥"){
                                 if(medalearned==false){
                                   if(hints<=2 && checks<5){
                                     Ardublockly.alertMessage(
@@ -518,7 +521,7 @@ Ardublockly.finish_tutorial = function() {
                     }
                     else{
                       Ardublockly.alertMessage(
-                        "Der 2.Sensebox_LED Block hat die falschen Eigenschaften",
+                        "Der 2.Sensebox_LED Block hat die falschen Eigenschaften(Pin oder Status)",
                         false);
                     }
                   }
@@ -530,7 +533,7 @@ Ardublockly.finish_tutorial = function() {
                 }
                 else{
                   Ardublockly.alertMessage(
-                    "Der 1.Sensebox_LED Block hat die falschen Eigenschaften",
+                    "Der 1.Sensebox_LED Block hat die falschen Eigenschaften(Pin oder Status)",
                     false);
                 }
               }
@@ -548,7 +551,7 @@ Ardublockly.finish_tutorial = function() {
           }
           else{
             Ardublockly.alertMessage(
-              "Die If Verzweigung hat die falschen Eigenschaften",
+              "Die If Verzweigung hat die falschen Eigenschaften(Siehe Tipp rechts)",
               false);
           }
         }
@@ -573,6 +576,7 @@ Ardublockly.finish_tutorial = function() {
   else{
     Ardublockly.alertMessage(
       "Bitte Blöcke einfügen",
+      "Wenn du den lila Block gelöscht hast, einfach neu laden",
       false);
   } 
 usedBlocks=0    
