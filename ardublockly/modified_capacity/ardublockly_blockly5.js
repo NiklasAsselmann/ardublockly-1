@@ -75,7 +75,6 @@ Ardublockly.bindBlocklyEventListeners = function() {
       document.getElementById('capacity').textContent =
       maxBlocks-usedBlocks-1
       usedBlocks=0
-      console.log(medalearned)
     }
   });
   // Ensure the Blockly workspace resizes accordingly
@@ -538,7 +537,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
   if(Object1.outputConnection.y_==ValuetoUSE){
     if(Object1.inputList[0].fieldRow[0].text_ == "1"){
       if(medalearned==false){
-        if(hints<=2 && checks<4){
+        if(hints<=2 && checks<6){
           Ardublockly.alertMessage(
             "Glückwunsch. Alles Richtig",
             "Du hast dir eine Goldmedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
@@ -546,7 +545,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             medalearned=true
             Gold++
         }
-        else if(hints>2 && checks >4){
+        else if(hints>2 && checks >6){
           Ardublockly.alertMessage(
             "Glückwunsch. Alles Richtig",
             "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
@@ -579,7 +578,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
   if(Object2.outputConnection.y_==ValuetoUSE){
     if(Object2.inputList[0].fieldRow[0].text_ == "1"){
       if(medalearned==false){
-        if(hints<=2 && checks<4){
+        if(hints<=2 && checks<6){
           Ardublockly.alertMessage(
             "Glückwunsch. Alles Richtig",
             "Du hast dir eine Goldmedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
@@ -587,7 +586,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             medalearned=true
             Gold++
         }
-        else if(hints>2 && checks >4){
+        else if(hints>2 && checks >6){
           Ardublockly.alertMessage(
             "Glückwunsch. Alles Richtig",
             "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
@@ -620,7 +619,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
   if(Object3.outputConnection.y_==ValuetoUSE){
     if(Object3.inputList[0].fieldRow[0].text_ == "1"){
       if(medalearned==false){
-        if(hints<=2 && checks<4){
+        if(hints<=2 && checks<6){
           Ardublockly.alertMessage(
             "Glückwunsch. Alles Richtig",
             "Du hast dir eine Goldmedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
@@ -628,7 +627,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             medalearned=true
             Gold++
         }
-        else if(hints>2 && checks >4){
+        else if(hints>2 && checks >6){
           Ardublockly.alertMessage(
             "Glückwunsch. Alles Richtig",
             "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
@@ -662,7 +661,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
   if(Object4.outputConnection.y_==ValuetoUSE){
     if(Object4.inputList[0].fieldRow[0].text_ == "1"){
       if(medalearned==false){
-        if(hints<=2 && checks<4){
+        if(hints<=2 && checks<6){
           Ardublockly.alertMessage(
             "Glückwunsch. Alles Richtig",
             "Du hast dir eine Goldmedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
@@ -670,7 +669,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             medalearned=true
             Gold++
         }
-        else if(hints>2 && checks >4){
+        else if(hints>2 && checks >6){
           Ardublockly.alertMessage(
             "Glückwunsch. Alles Richtig",
             "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
