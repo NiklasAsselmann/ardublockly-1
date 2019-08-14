@@ -75,7 +75,6 @@ Ardublockly.bindBlocklyEventListeners = function() {
       document.getElementById('capacity').textContent =
       maxBlocks-usedBlocks-1
       usedBlocks=0
-      console.log(AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_)
     }
   });
   // Ensure the Blockly workspace resizes accordingly
