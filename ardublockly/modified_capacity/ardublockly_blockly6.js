@@ -416,7 +416,7 @@ Ardublockly.finish_tutorial = function() {
                       if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0] != undefined && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].type=="sensebox_sensor_uv_light"){
                         if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[1].text_=="Illuminance in Lux"){
                           if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1] != undefined && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].type=="math_number"){
-                            if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[0].text_ == "500"){
+                            if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[0].text_ == "3000"){
                               if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_>AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_=="<" ||
                                  AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_>AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_=="≤"){
                                 if(medalearned==false){
