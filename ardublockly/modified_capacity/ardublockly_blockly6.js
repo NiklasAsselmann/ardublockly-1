@@ -340,9 +340,10 @@ document.getElementById('hints').textContent =0
 var hints=0
 var checks=0
 var medalearned=false
-var Gold=0
-var Silver=0
-var Bronze=0
+var tut2=0
+var tut3=0
+var tut4=0
+var tut5=0
 
 /** Check Tutorials Function */
 Ardublockly.finish_tutorial = function() {
@@ -426,7 +427,7 @@ Ardublockly.finish_tutorial = function() {
                                       "Du hast dir eine Goldmedallie erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
                                       false);
                                       medalearned=true
-                                      Gold++;
+                                      tut5="Gold"
                                       
                                   }
                                   else if(hints>2 && checks >5){
@@ -435,7 +436,7 @@ Ardublockly.finish_tutorial = function() {
                                       "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
                                       false);
                                       medalearned=true
-                                      Bronze++
+                                      tut5="Bronze"
                                   }
                                   else{
                                     Ardublockly.alertMessage(
@@ -443,7 +444,7 @@ Ardublockly.finish_tutorial = function() {
                                       "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
                                       false);
                                       medalearned=true
-                                      Silver++
+                                      tut5="Silber"
                                   }
                                 }
                                 else{
@@ -462,7 +463,7 @@ Ardublockly.finish_tutorial = function() {
                                       "Du hast dir eine Goldmedallie erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
                                       false);
                                       medalearned=true
-                                      Gold++;
+                                      tut5="Gold"
                                   }
                                   else if(hints>2 && checks >5){
                                     Ardublockly.alertMessage(
@@ -470,7 +471,7 @@ Ardublockly.finish_tutorial = function() {
                                       "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
                                       false);
                                       medalearned=true
-                                      Bronze++
+                                      tut5="Bronze"
                                   }
                                   else{
                                     Ardublockly.alertMessage(
@@ -478,7 +479,7 @@ Ardublockly.finish_tutorial = function() {
                                       "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
                                       false);
                                       medalearned=true
-                                      Silver++
+                                      tut5="Silber"
                                   }
                                 }
                                 else{
@@ -636,7 +637,7 @@ function openUrl()
 {
   if(medalearned==true){
     var url1 = "index7.html";
-    var url = url1+"?Gold="+Gold+"&Silver="+Silver+"&Bronze="+Bronze+"&board=sensebox-mcu";		
+    var url = url1+"?tut2="+tut2+"&tut3="+tut3+"&tut4="+tut4+"&tut5="+tut5+"&board=sensebox-mcu";		
     window.location = url;
   }
   else{
@@ -652,7 +653,8 @@ function getURLParameter(name) {
 }
  
 window.onload = function(){
-  Gold = getURLParameter('Gold')
-  Silver = getURLParameter('Silver')
-  Bronze = getURLParameter('Bronze')
+  tut2 = getURLParameter('tut2')
+  tut3 = getURLParameter('tut3')
+  tut4 = getURLParameter('tut4')
+  tut5 = getURLParameter('tut5')
 }

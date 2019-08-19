@@ -340,9 +340,10 @@ document.getElementById('hints').textContent =0
 var hints=0
 var checks=0
 var medalearned=false
-var Gold=0
-var Silver=0
-var Bronze=0
+var tut2=0
+var tut3=0
+var tut4=0
+var tut5=0
 
 /** Check Tutorials Function */
 Ardublockly.finish_tutorial = function() {
@@ -543,7 +544,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             "Du hast dir eine Goldmedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
             false);
             medalearned=true
-            Gold++
+            tut4="Gold"
         }
         else if(hints>2 && checks >6){
           Ardublockly.alertMessage(
@@ -551,7 +552,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
             false);
             medalearned=true
-            Bronze++
+            tut4="Bronze"
         }
         else{
           Ardublockly.alertMessage(
@@ -559,7 +560,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
             false);
             medalearned=true
-            Silver++
+            tut4="Silber"
         }
       }
       else{
@@ -584,7 +585,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             "Du hast dir eine Goldmedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
             false);
             medalearned=true
-            Gold++
+            tut4="Gold"
         }
         else if(hints>2 && checks >6){
           Ardublockly.alertMessage(
@@ -592,7 +593,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
             false);
             medalearned=true
-            Bronze++
+            tut4="Bronze"
         }
         else{
           Ardublockly.alertMessage(
@@ -600,7 +601,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
             false);
             medalearned=true
-            Silver++
+            tut4="Silber"
         }
       }
       else{
@@ -625,7 +626,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             "Du hast dir eine Goldmedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
             false);
             medalearned=true
-            Gold++
+            tut4="Gold"
         }
         else if(hints>2 && checks >6){
           Ardublockly.alertMessage(
@@ -633,7 +634,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
             false);
             medalearned=true
-            Bronze++
+            tut4="Bronze"
         }
         else{
           Ardublockly.alertMessage(
@@ -641,7 +642,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
             false);
             medalearned=true
-            Silver++
+            tut4="Silber"
         }
       }
       else{
@@ -667,7 +668,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             "Du hast dir eine Goldmedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
             false);
             medalearned=true
-            Gold++
+            tut4="Gold"
         }
         else if(hints>2 && checks >6){
           Ardublockly.alertMessage(
@@ -675,7 +676,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
             false);
             medalearned=true
-            Bronze++
+            tut4="Bronze"
         }
         else{
           Ardublockly.alertMessage(
@@ -683,7 +684,7 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und danach das nächste Tutorial bearbeiten",
             false);
             medalearned=true
-            Silver++
+            tut4="Silber"
         }
       }
       else{
@@ -705,7 +706,7 @@ function openUrl()
 {
   if(medalearned==true){
     var url1 = "index6.html";
-    var url = url1+"?Gold="+Gold+"&Silver="+Silver+"&Bronze="+Bronze+"&board=sensebox-mcu";		
+    var url = url1+"?tut2="+tut2+"&tut3="+tut3+"&tut4="+tut4+"&tut5="+tut5+"&board=sensebox-mcu";		
     window.location = url;
   }
   else{
@@ -721,7 +722,8 @@ function getURLParameter(name) {
 }
  
 window.onload = function(){
-  Gold = getURLParameter('Gold')
-  Silver = getURLParameter('Silver')
-  Bronze = getURLParameter('Bronze')
+  tut2 = getURLParameter('tut2')
+  tut3 = getURLParameter('tut3')
+  tut4 = getURLParameter('tut4')
+  tut5 = getURLParameter('tut5')
 }

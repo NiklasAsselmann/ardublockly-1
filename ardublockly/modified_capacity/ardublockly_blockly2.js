@@ -190,9 +190,10 @@ document.getElementById('hints').textContent =0
 var hints=0
 var checks=0
 var medalearned=false
-var Gold=0
-var Silver=0
-var Bronze=0
+var tut2=0
+var tut3=0
+var tut4=0
+var tut5=0
 
 /** Check Tutorials Function */
 Ardublockly.finish_tutorial = function() {
@@ -437,7 +438,7 @@ function openUrl()
 {
   if(medalearned==true){
     var url1 = "index3.html";
-    var url = url1+"?Gold="+Gold+"&Silver="+Silver+"&Bronze="+Bronze+"&board=sensebox-mcu";		
+    var url = url1+"?tut2="+tut2+"&tut3="+tut3+"&tut4="+tut4+"&tut5="+tut5+"&board=sensebox-mcu";		
     window.location = url;
   }
   else{
