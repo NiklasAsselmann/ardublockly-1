@@ -331,9 +331,11 @@ function getURLParameter(name) {
   return (value !== 'null') ? value : false;
 }
  
-var Gold = getURLParameter('Gold')
-var Silver = getURLParameter('Silver')
-var Bronze = getURLParameter('Bronze')
-document.getElementById('gold').textContent = Gold
-document.getElementById('silber').textContent = Silver
-document.getElementById('bronze').textContent = Bronze
+var tut2 = getURLParameter('tut2')
+var tut3 = getURLParameter('tut3')
+var tut4 = getURLParameter('tut4')
+var tut5 = getURLParameter('tut5')
+document.getElementById('tut2').textContent = tut2
+document.getElementById('tut3').textContent = tut3
+document.getElementById('tut4').textContent = tut4
+document.getElementById('tut5').textContent = tut5
