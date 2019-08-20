@@ -395,7 +395,7 @@ Ardublockly.finish_tutorial = function() {
 Ardublockly.hint = function() {
   if(hints==0){
     Ardublockly.alertMessage(
-    "Es müssen 6 Blöcke in den do Block des Loops",
+    "Es müssen 6 Blöcke in den do Teil des Repeat-Blockes und keine anderswo",
     false);
     hints=hints+1
     document.getElementById('hints').textContent = hints
@@ -411,7 +411,7 @@ Ardublockly.hint = function() {
     else{
       Ardublockly.alertMessage(
         "Alle Hints benutzt. Diese waren:",
-        "1. Es müssen 6 Blöcke in den do Block des Loops <br> 2. Der Teil im do Block sieht exakt so aus wie der aus Tutorial Nr. 2",
+        "1. Es müssen 6 Blöcke in den do Teil des Repeat-Blockes und keine anderswo <br> 2. Der Teil im do Block sieht exakt so aus wie der aus Tutorial Nr. 2",
         false);
         document.getElementById('hints').textContent = hints
     }
