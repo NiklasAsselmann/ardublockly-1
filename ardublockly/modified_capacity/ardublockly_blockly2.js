@@ -202,61 +202,62 @@ Ardublockly.finish_tutorial = function() {
     checkParent(AllBlocks[i])
   }
   usedBlocks=usedBlocks+1
-  if(AllBlocks[0] != null && AllBlocks[0].childBlocks_[0] != null){
-        if(AllBlocks[0].inputList[1].renderHeight==25){
-          if(usedBlocks<=2){
-            if(AllBlocks[0].childBlocks_[0].type =="sensebox_led"){
-              if(AllBlocks[0].childBlocks_[0].inputList[0].fieldRow[2].text_=="D1"){
-                if(AllBlocks[0].childBlocks_[0].inputList[0].fieldRow[4].text_=="on"){
-                  if(medalearned==false){
-                    Ardublockly.alertMessage(
-                      "Glückwunsch.Alles Richtig",
-                      "Jetzt einfach nur noch hochladen und mit den richtigen Tutorials anfangen",
-                      false);
-                      medalearned=true
-                  }
-                  else{
-                    Ardublockly.alertMessage(
-                      "Du hast das Tutorial bereits geschafft",
-                      "Starte jetzt das nächste Tutorial",
-                      false);
-                  }
-                }
-                else{
+  if(medalearned==false){
+    if(AllBlocks[0] != null && AllBlocks[0].childBlocks_[0] != null){
+      if(AllBlocks[0].inputList[1].renderHeight==25){
+        if(usedBlocks<=2){
+          if(AllBlocks[0].childBlocks_[0].type =="sensebox_led"){
+            if(AllBlocks[0].childBlocks_[0].inputList[0].fieldRow[2].text_=="D1"){
+              if(AllBlocks[0].childBlocks_[0].inputList[0].fieldRow[4].text_=="on"){
                   Ardublockly.alertMessage(
-                    "Die Lampe muss angeschaltet werden",
+                    "Glückwunsch.Alles Richtig",
+                    "Jetzt einfach nur noch hochladen und mit den richtigen Tutorials anfangen",
                     false);
-                  }
+                    medalearned=true
                 }
               else{
                 Ardublockly.alertMessage(
-                  "Der angeschlossene Pin ist falsch",
+                  "Die Lampe muss angeschaltet werden",
                   false);
+                }
               }
-            }
             else{
               Ardublockly.alertMessage(
-                "Falscher Block",
+                "Der angeschlossene Pin ist falsch",
                 false);
-              }
+            }
           }
           else{
             Ardublockly.alertMessage(
-              "Zu viele aktive Blöcke",
+              "Falscher Block",
               false);
-          }
+            }
         }
-        else{Ardublockly.alertMessage(
-          "Blöcke bitte in den Loop",
-          false);
-          }
+        else{
+          Ardublockly.alertMessage(
+            "Zu viele aktive Blöcke",
+            false);
         }
-      else{
-        Ardublockly.alertMessage(
-          "Bitte Blöcke einfügen",
-          "Wenn du den lila Block gelöscht hast, einfach neu laden",
-          false);
-      }  
+      }
+      else{Ardublockly.alertMessage(
+        "Block bitte in den Loop",
+        false);
+        }
+      }
+    else{
+      Ardublockly.alertMessage(
+        "Bitte Blöcke einfügen",
+        "Wenn du den lila Block gelöscht hast, einfach neu laden",
+        false);
+    }  
+  }
+  else{
+      Ardublockly.alertMessage(
+        "Du hast das Tutorial bereits geschafft",
+        "Starte jetzt das nächste Tutorial",
+        false);
+  }
+ 
   usedBlocks =0
   checks=checks+1
   document.getElementById('checks').textContent = checks
