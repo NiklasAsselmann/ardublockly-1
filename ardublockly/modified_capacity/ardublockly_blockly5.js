@@ -353,127 +353,136 @@ Ardublockly.finish_tutorial = function() {
     checkParent(AllBlocks[i])
   }
   usedBlocks=usedBlocks+1
-      if(AllBlocks[0] != null && AllBlocks[0].childBlocks_[0] != null){
-        if(usedBlocks<10){
-          if(AllBlocks[0].inputList[1].renderHeight==29){
-            if(AllBlocks[0].inputList[3].renderHeight>24){
-              if(AllBlocks[0].childBlocks_[0] != undefined && AllBlocks[0].childBlocks_[1]!=undefined){
-                //Block Changer
-                if(AllBlocks[0].childBlocks_[0].type=="sensebox_display_show" && AllBlocks[0].childBlocks_[1].type=="sensebox_display_beginDisplay"){
-                  var ChangeBlock= AllBlocks[0].childBlocks_[0]
-                  AllBlocks[0].childBlocks_[0]=AllBlocks[0].childBlocks_[1]
-                  AllBlocks[0].childBlocks_[1]=ChangeBlock
-                }
+  if(medalearned==false){
+    if(AllBlocks[0] != null && AllBlocks[0].childBlocks_[0] != null){
+      if(usedBlocks<10){
+        if(AllBlocks[0].inputList[1].renderHeight==29){
+          if(AllBlocks[0].inputList[3].renderHeight>24){
+            if(AllBlocks[0].childBlocks_[0] != undefined && AllBlocks[0].childBlocks_[1]!=undefined){
+              //Block Changer
+              if(AllBlocks[0].childBlocks_[0].type=="sensebox_display_show" && AllBlocks[0].childBlocks_[1].type=="sensebox_display_beginDisplay"){
+                var ChangeBlock= AllBlocks[0].childBlocks_[0]
+                AllBlocks[0].childBlocks_[0]=AllBlocks[0].childBlocks_[1]
+                AllBlocks[0].childBlocks_[1]=ChangeBlock
               }
-                if(AllBlocks[0].childBlocks_[1].type=="sensebox_display_show"){
-                  if(AllBlocks[0].childBlocks_[1].inputList[1].renderHeight>24){
-                    //Block Changer
-                    if(AllBlocks[0].childBlocks_[1].childBlocks_[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[1].type=="sensebox_display_printDisplay" && AllBlocks[0].childBlocks_[1].childBlocks_[0]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[0].type=="sensebox_display_clearDisplay"){
-                      var ChangeBlock= AllBlocks[0].childBlocks_[1].childBlocks_[0]
-                      AllBlocks[0].childBlocks_[1].childBlocks_[0]=AllBlocks[0].childBlocks_[1].childBlocks_[1]
-                      AllBlocks[0].childBlocks_[1].childBlocks_[1]=ChangeBlock
-                    }
-                    if(AllBlocks[0].childBlocks_[1].childBlocks_[0]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[0].type=="sensebox_display_printDisplay" ){
-                      if(AllBlocks[0].childBlocks_[1].childBlocks_[0].inputList[2].renderHeight==26){
-                        if(AllBlocks[0].childBlocks_[1].childBlocks_[0].inputList[3].renderHeight==26){
-                          if(AllBlocks[0].childBlocks_[1].childBlocks_[0].inputList[4].renderHeight==26){
-                            if(AllBlocks[0].childBlocks_[1].childBlocks_[0].inputList[5].renderHeight==50){
-                              if(AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_.length == 4){
-                                if(AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[0].inputList[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[1].text_=="Illuminance in Lux" ||
-                                   AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].inputList[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].inputList[1].fieldRow[1].text_=="Illuminance in Lux" || 
-                                   AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[2].inputList[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[2].inputList[1].fieldRow[1].text_=="Illuminance in Lux" ||
-                                   AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[3].inputList[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[3].inputList[1].fieldRow[1].text_=="Illuminance in Lux" ){
-                                  if(AllBlocks[0].childBlocks_[1].childBlocks_[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[1].type=="sensebox_display_clearDisplay"){
-                                    checkFontSize(AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[0],
-                                                  AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[1],
-                                                  AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[2],
-                                                  AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[3]
-                                    )
-                                  }
-                                  else{
-                                    Ardublockly.alertMessage(
-                                      "Falscher neunter Block",
-                                      false);
-                                  }
+            }
+              if(AllBlocks[0].childBlocks_[1].type=="sensebox_display_show"){
+                if(AllBlocks[0].childBlocks_[1].inputList[1].renderHeight>24){
+                  //Block Changer
+                  if(AllBlocks[0].childBlocks_[1].childBlocks_[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[1].type=="sensebox_display_printDisplay" && AllBlocks[0].childBlocks_[1].childBlocks_[0]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[0].type=="sensebox_display_clearDisplay"){
+                    var ChangeBlock= AllBlocks[0].childBlocks_[1].childBlocks_[0]
+                    AllBlocks[0].childBlocks_[1].childBlocks_[0]=AllBlocks[0].childBlocks_[1].childBlocks_[1]
+                    AllBlocks[0].childBlocks_[1].childBlocks_[1]=ChangeBlock
+                  }
+                  if(AllBlocks[0].childBlocks_[1].childBlocks_[0]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[0].type=="sensebox_display_printDisplay" ){
+                    if(AllBlocks[0].childBlocks_[1].childBlocks_[0].inputList[2].renderHeight==26){
+                      if(AllBlocks[0].childBlocks_[1].childBlocks_[0].inputList[3].renderHeight==26){
+                        if(AllBlocks[0].childBlocks_[1].childBlocks_[0].inputList[4].renderHeight==26){
+                          if(AllBlocks[0].childBlocks_[1].childBlocks_[0].inputList[5].renderHeight==50){
+                            if(AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_.length == 4){
+                              if(AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[0].inputList[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[1].text_=="Illuminance in Lux" ||
+                                 AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].inputList[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[1].inputList[1].fieldRow[1].text_=="Illuminance in Lux" || 
+                                 AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[2].inputList[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[2].inputList[1].fieldRow[1].text_=="Illuminance in Lux" ||
+                                 AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[3].inputList[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[3].inputList[1].fieldRow[1].text_=="Illuminance in Lux" ){
+                                if(AllBlocks[0].childBlocks_[1].childBlocks_[1]!= undefined && AllBlocks[0].childBlocks_[1].childBlocks_[1].type=="sensebox_display_clearDisplay"){
+                                  checkFontSize(AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[0],
+                                                AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[1],
+                                                AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[2],
+                                                AllBlocks[0].childBlocks_[1].childBlocks_[0].childBlocks_[3]
+                                  )
                                 }
                                 else{
                                   Ardublockly.alertMessage(
-                                    "Der neunte Block hat die falschen Eigenschaften",
+                                    "Falscher neunter Block",
                                     false);
                                 }
                               }
                               else{
                                 Ardublockly.alertMessage(
-                                  "Fehlender/falsche Stelle des neunten Blocks",
+                                  "Der neunte Block hat die falschen Eigenschaften",
                                   false);
                               }
                             }
                             else{
                               Ardublockly.alertMessage(
-                                "Falscher/fehlender achter Block",
+                                "Fehlender/falsche Stelle des neunten Blocks",
                                 false);
                             }
                           }
                           else{
                             Ardublockly.alertMessage(
-                              "Falscher/fehlender siebter Block",
+                              "Falscher/fehlender achter Block",
                               false);
                           }
                         }
                         else{
                           Ardublockly.alertMessage(
-                            "Falscher/fehlender sechster Block",
+                            "Falscher/fehlender siebter Block",
                             false);
                         }
                       }
                       else{
                         Ardublockly.alertMessage(
-                          "Falscher/fehlender fünfter Block",
+                          "Falscher/fehlender sechster Block",
                           false);
                       }
                     }
                     else{
                       Ardublockly.alertMessage(
-                        "Falscher/fehlender vierter Block",
+                        "Falscher/fehlender fünfter Block",
                         false);
                     }
                   }
                   else{
                     Ardublockly.alertMessage(
-                      "Der vierte Block muss in den Print Block",
+                      "Falscher/fehlender vierter Block",
                       false);
                   }
                 }
                 else{
                   Ardublockly.alertMessage(
-                    "Falscher dritter Block",
+                    "Der vierte Block muss in den Print Block",
                     false);
                 }
               }
               else{
                 Ardublockly.alertMessage(
-                  "Bitte Blöcke in den Loop einfügen",
+                  "Falscher dritter Block",
                   false);
               }
             }
             else{
               Ardublockly.alertMessage(
-                "Falscher/fehlender Block im Run-First Block",
+                "Bitte Blöcke in den Loop einfügen",
                 false);
-            }  
+            }
           }
           else{
             Ardublockly.alertMessage(
-              "zu viele aktive Blöcke",
+              "Falscher/fehlender Block im Run-First Block",
               false);
-          }
+          }  
         }
         else{
           Ardublockly.alertMessage(
-            "Bitte Blöcke einfügen",
-            "Wenn du den lila Block gelöscht hast, einfach neu laden",
+            "zu viele aktive Blöcke",
             false);
         }
+      }
+      else{
+        Ardublockly.alertMessage(
+          "Bitte Blöcke einfügen",
+          "Wenn du den lila Block gelöscht hast, einfach neu laden",
+          false);
+      }
+  }
+  else{
+    Ardublockly.alertMessage(
+      "Du hast breits eine Medaille verdient",
+      "Lade deinen Code hoch und starte bitte das nächste Tutorial",
+      false);
+  }
+
       usedBlocks=0   
       checks=checks+1
       document.getElementById('checks').textContent = checks             
@@ -537,7 +546,6 @@ function checkFontSize(Object1,Object2,Object3,Object4){
     Object4.outputConnection.y_,)
   if(Object1.outputConnection.y_==ValuetoUSE){
     if(Object1.inputList[0].fieldRow[0].text_ == "1"){
-      if(medalearned==false){
         if(hints<=2 && checks<6){
           Ardublockly.alertMessage(
             "Glückwunsch. Alles Richtig",
@@ -563,13 +571,6 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             tut4="Silber"
         }
       }
-      else{
-        Ardublockly.alertMessage(
-          "Du hast breits eine Medaille verdient",
-          "Lade deinen Code hoch und starte bitte das nächste Tutorial",
-          false);
-      }
-    }
     else{
       Ardublockly.alertMessage(
         "bitte die Font-Size auf 1 setzten",
@@ -578,7 +579,6 @@ function checkFontSize(Object1,Object2,Object3,Object4){
   }
   if(Object2.outputConnection.y_==ValuetoUSE){
     if(Object2.inputList[0].fieldRow[0].text_ == "1"){
-      if(medalearned==false){
         if(hints<=2 && checks<6){
           Ardublockly.alertMessage(
             "Glückwunsch. Alles Richtig",
@@ -604,13 +604,6 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             tut4="Silber"
         }
       }
-      else{
-        Ardublockly.alertMessage(
-          "Du hast breits eine Medaille verdient",
-          "Lade deinen Code hoch und starte bitte das nächste Tutorial",
-          false);
-      }
-    }
     else{
       Ardublockly.alertMessage(
         "bitte die Font-Size auf 1 setzten",
@@ -619,7 +612,6 @@ function checkFontSize(Object1,Object2,Object3,Object4){
   }
   if(Object3.outputConnection.y_==ValuetoUSE){
     if(Object3.inputList[0].fieldRow[0].text_ == "1"){
-      if(medalearned==false){
         if(hints<=2 && checks<6){
           Ardublockly.alertMessage(
             "Glückwunsch. Alles Richtig",
@@ -645,13 +637,6 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             tut4="Silber"
         }
       }
-      else{
-        Ardublockly.alertMessage(
-          "Du hast breits eine Medaille verdient",
-          "Lade deinen Code hoch und starte bitte das nächste Tutorial",
-          false);
-      }
-    }
     else{
       Ardublockly.alertMessage(
         "bitte die Font-Size auf 1 setzten",
@@ -661,7 +646,6 @@ function checkFontSize(Object1,Object2,Object3,Object4){
   }
   if(Object4.outputConnection.y_==ValuetoUSE){
     if(Object4.inputList[0].fieldRow[0].text_ == "1"){
-      if(medalearned==false){
         if(hints<=2 && checks<6){
           Ardublockly.alertMessage(
             "Glückwunsch. Alles Richtig",
@@ -686,13 +670,6 @@ function checkFontSize(Object1,Object2,Object3,Object4){
             medalearned=true
             tut4="Silber"
         }
-      }
-      else{
-        Ardublockly.alertMessage(
-          "Du hast breits eine Medaille verdient",
-          "Lade deinen Code hoch und starte bitte das nächste Tutorial",
-          false);
-      }
     }
     else{
       Ardublockly.alertMessage(

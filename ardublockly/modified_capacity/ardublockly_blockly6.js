@@ -352,233 +352,226 @@ Ardublockly.finish_tutorial = function() {
     checkParent(AllBlocks[i])
   }
   usedBlocks=usedBlocks+1
-  if(AllBlocks[0] != null && AllBlocks[0].childBlocks_[0] != null){
-    if(usedBlocks<8){
-      if(AllBlocks[0].inputList[1].renderHeight==25){
-        if(AllBlocks[0].childBlocks_[0].type=="controls_if"){
-          if(AllBlocks[0].childBlocks_[0].inputList[2]!=undefined && AllBlocks[0].childBlocks_[0].inputList[2].name=="ELSE"){
-            // Start Block Changer
-            if(AllBlocks[0].childBlocks_[0].childBlocks_[0]!=undefined && AllBlocks[0].childBlocks_[0].childBlocks_[1]!=undefined && AllBlocks[0].childBlocks_[0].childBlocks_[2]!=undefined){
-              if(AllBlocks[0].childBlocks_[0].childBlocks_[0].type=="logic_compare" && AllBlocks[0].childBlocks_[0].childBlocks_[2].nextConnection.y_<AllBlocks[0].childBlocks_[0].childBlocks_[1].nextConnection.y_){
-                var ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[1]
-                AllBlocks[0].childBlocks_[0].childBlocks_[1]=AllBlocks[0].childBlocks_[0].childBlocks_[2]
-                AllBlocks[0].childBlocks_[0].childBlocks_[2]=ChangeBlock
-              }
-          
-              if(AllBlocks[0].childBlocks_[0].childBlocks_[2].type=="logic_compare" && AllBlocks[0].childBlocks_[0].childBlocks_[1].nextConnection.y_<AllBlocks[0].childBlocks_[0].childBlocks_[0].nextConnection.y_){
-                var ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[2]
-                AllBlocks[0].childBlocks_[0].childBlocks_[2]=AllBlocks[0].childBlocks_[0].childBlocks_[0]
-                AllBlocks[0].childBlocks_[0].childBlocks_[0]=ChangeBlock
-              }
-              
-              if(AllBlocks[0].childBlocks_[0].childBlocks_[1].type=="logic_compare" && AllBlocks[0].childBlocks_[0].childBlocks_[2].nextConnection.y_<AllBlocks[0].childBlocks_[0].childBlocks_[0].nextConnection.y_){
-                //First Change
-                var ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[1]
-                AllBlocks[0].childBlocks_[0].childBlocks_[1]=AllBlocks[0].childBlocks_[0].childBlocks_[0]
-                AllBlocks[0].childBlocks_[0].childBlocks_[0]=ChangeBlock
-                //Second Change
-                ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[2]
-                AllBlocks[0].childBlocks_[0].childBlocks_[2]=AllBlocks[0].childBlocks_[0].childBlocks_[1]
-                AllBlocks[0].childBlocks_[0].childBlocks_[1]=ChangeBlock
-              }
-          
-              if(AllBlocks[0].childBlocks_[0].childBlocks_[1].type=="logic_compare" && AllBlocks[0].childBlocks_[0].childBlocks_[0].nextConnection.y_<AllBlocks[0].childBlocks_[0].childBlocks_[2].nextConnection.y_){
-                var ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[1]
-                AllBlocks[0].childBlocks_[0].childBlocks_[1]=AllBlocks[0].childBlocks_[0].childBlocks_[0]
-                AllBlocks[0].childBlocks_[0].childBlocks_[0]=ChangeBlock
-              }
-          
-              if(AllBlocks[0].childBlocks_[0].childBlocks_[2].type=="logic_compare" && AllBlocks[0].childBlocks_[0].childBlocks_[0].nextConnection.y_< AllBlocks[0].childBlocks_[0].childBlocks_[1].nextConnection.y_){
-                //First Change
-                var ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[2]
-                AllBlocks[0].childBlocks_[0].childBlocks_[2]=AllBlocks[0].childBlocks_[0].childBlocks_[0]
-                AllBlocks[0].childBlocks_[0].childBlocks_[0]=ChangeBlock
-                //Second Change
-                ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[2]
-                AllBlocks[0].childBlocks_[0].childBlocks_[2]=AllBlocks[0].childBlocks_[0].childBlocks_[1]
-                AllBlocks[0].childBlocks_[0].childBlocks_[1]=ChangeBlock
-              }
-            }  
-            // End Block Changer
-            if(AllBlocks[0].childBlocks_[0].childBlocks_[0]!= undefined && AllBlocks[0].childBlocks_[0].childBlocks_[0].type=="logic_compare"){
-              if(AllBlocks[0].childBlocks_[0].childBlocks_[1]!= undefined && AllBlocks[0].childBlocks_[0].childBlocks_[1].type=="sensebox_led"){
-                if(AllBlocks[0].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[2].text_=="D1" && AllBlocks[0].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[4].text_=="on"){
-                  if(AllBlocks[0].childBlocks_[0].childBlocks_[2]!= undefined && AllBlocks[0].childBlocks_[0].childBlocks_[2].type=="sensebox_led"){
-                    if(AllBlocks[0].childBlocks_[0].childBlocks_[2].inputList[0].fieldRow[2].text_=="D1" && AllBlocks[0].childBlocks_[0].childBlocks_[2].inputList[0].fieldRow[4].text_=="off"){
-                      //Start Block Changer
-                      if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0] != undefined && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1]!=undefined){
-                        if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].type=="math_number" && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].type=="sensebox_sensor_uv_light"){
-                          var ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0]
-                          AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0]=AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1]
-                          AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1]=ChangeBlock
+  if(medalearned==false){
+    if(AllBlocks[0] != null && AllBlocks[0].childBlocks_[0] != null){
+      if(usedBlocks<8){
+        if(AllBlocks[0].inputList[1].renderHeight==25){
+          if(AllBlocks[0].childBlocks_[0].type=="controls_if"){
+            if(AllBlocks[0].childBlocks_[0].inputList[2]!=undefined && AllBlocks[0].childBlocks_[0].inputList[2].name=="ELSE"){
+              // Start Block Changer
+              if(AllBlocks[0].childBlocks_[0].childBlocks_[0]!=undefined && AllBlocks[0].childBlocks_[0].childBlocks_[1]!=undefined && AllBlocks[0].childBlocks_[0].childBlocks_[2]!=undefined){
+                if(AllBlocks[0].childBlocks_[0].childBlocks_[0].type=="logic_compare" && AllBlocks[0].childBlocks_[0].childBlocks_[2].nextConnection.y_<AllBlocks[0].childBlocks_[0].childBlocks_[1].nextConnection.y_){
+                  var ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[1]
+                  AllBlocks[0].childBlocks_[0].childBlocks_[1]=AllBlocks[0].childBlocks_[0].childBlocks_[2]
+                  AllBlocks[0].childBlocks_[0].childBlocks_[2]=ChangeBlock
+                }
+            
+                if(AllBlocks[0].childBlocks_[0].childBlocks_[2].type=="logic_compare" && AllBlocks[0].childBlocks_[0].childBlocks_[1].nextConnection.y_<AllBlocks[0].childBlocks_[0].childBlocks_[0].nextConnection.y_){
+                  var ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[2]
+                  AllBlocks[0].childBlocks_[0].childBlocks_[2]=AllBlocks[0].childBlocks_[0].childBlocks_[0]
+                  AllBlocks[0].childBlocks_[0].childBlocks_[0]=ChangeBlock
+                }
+                
+                if(AllBlocks[0].childBlocks_[0].childBlocks_[1].type=="logic_compare" && AllBlocks[0].childBlocks_[0].childBlocks_[2].nextConnection.y_<AllBlocks[0].childBlocks_[0].childBlocks_[0].nextConnection.y_){
+                  //First Change
+                  var ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[1]
+                  AllBlocks[0].childBlocks_[0].childBlocks_[1]=AllBlocks[0].childBlocks_[0].childBlocks_[0]
+                  AllBlocks[0].childBlocks_[0].childBlocks_[0]=ChangeBlock
+                  //Second Change
+                  ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[2]
+                  AllBlocks[0].childBlocks_[0].childBlocks_[2]=AllBlocks[0].childBlocks_[0].childBlocks_[1]
+                  AllBlocks[0].childBlocks_[0].childBlocks_[1]=ChangeBlock
+                }
+            
+                if(AllBlocks[0].childBlocks_[0].childBlocks_[1].type=="logic_compare" && AllBlocks[0].childBlocks_[0].childBlocks_[0].nextConnection.y_<AllBlocks[0].childBlocks_[0].childBlocks_[2].nextConnection.y_){
+                  var ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[1]
+                  AllBlocks[0].childBlocks_[0].childBlocks_[1]=AllBlocks[0].childBlocks_[0].childBlocks_[0]
+                  AllBlocks[0].childBlocks_[0].childBlocks_[0]=ChangeBlock
+                }
+            
+                if(AllBlocks[0].childBlocks_[0].childBlocks_[2].type=="logic_compare" && AllBlocks[0].childBlocks_[0].childBlocks_[0].nextConnection.y_< AllBlocks[0].childBlocks_[0].childBlocks_[1].nextConnection.y_){
+                  //First Change
+                  var ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[2]
+                  AllBlocks[0].childBlocks_[0].childBlocks_[2]=AllBlocks[0].childBlocks_[0].childBlocks_[0]
+                  AllBlocks[0].childBlocks_[0].childBlocks_[0]=ChangeBlock
+                  //Second Change
+                  ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[2]
+                  AllBlocks[0].childBlocks_[0].childBlocks_[2]=AllBlocks[0].childBlocks_[0].childBlocks_[1]
+                  AllBlocks[0].childBlocks_[0].childBlocks_[1]=ChangeBlock
+                }
+              }  
+              // End Block Changer
+              if(AllBlocks[0].childBlocks_[0].childBlocks_[0]!= undefined && AllBlocks[0].childBlocks_[0].childBlocks_[0].type=="logic_compare"){
+                if(AllBlocks[0].childBlocks_[0].childBlocks_[1]!= undefined && AllBlocks[0].childBlocks_[0].childBlocks_[1].type=="sensebox_led"){
+                  if(AllBlocks[0].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[2].text_=="D1" && AllBlocks[0].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[4].text_=="on"){
+                    if(AllBlocks[0].childBlocks_[0].childBlocks_[2]!= undefined && AllBlocks[0].childBlocks_[0].childBlocks_[2].type=="sensebox_led"){
+                      if(AllBlocks[0].childBlocks_[0].childBlocks_[2].inputList[0].fieldRow[2].text_=="D1" && AllBlocks[0].childBlocks_[0].childBlocks_[2].inputList[0].fieldRow[4].text_=="off"){
+                        //Start Block Changer
+                        if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0] != undefined && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1]!=undefined){
+                          if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].type=="math_number" && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].type=="sensebox_sensor_uv_light"){
+                            var ChangeBlock= AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0]
+                            AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0]=AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1]
+                            AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1]=ChangeBlock
+                          }
                         }
-                      }
-                      // End Block Changer 
-                      if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0] != undefined && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].type=="sensebox_sensor_uv_light"){
-                        if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[1].text_=="Illuminance in Lux"){
-                          if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1] != undefined && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].type=="math_number"){
-                            if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[0].text_ == "3000"){
-                              if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_>AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_=="<" ||
-                                 AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_>AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_=="≤"){
-                                if(medalearned==false){
-                                  if(hints<=2 && checks<5){
-                                    Ardublockly.alertMessage(
-                                      "Glückwunsch. Alles Richtig",
-                                      "Du hast dir eine Goldmedallie erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
-                                      false);
-                                      medalearned=true
-                                      tut5="Gold"
-                                      
+                        // End Block Changer 
+                        if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0] != undefined && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].type=="sensebox_sensor_uv_light"){
+                          if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[1].text_=="Illuminance in Lux"){
+                            if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1] != undefined && AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].type=="math_number"){
+                              if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].inputList[0].fieldRow[0].text_ == "3000"){
+                                if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_>AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_=="<" ||
+                                   AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_>AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_=="≤"){
+                                    if(hints<=2 && checks<5){
+                                      Ardublockly.alertMessage(
+                                        "Glückwunsch. Alles Richtig",
+                                        "Du hast dir eine Goldmedallie erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
+                                        false);
+                                        medalearned=true
+                                        tut5="Gold"
+                                        
+                                    }
+                                    else if(hints>2 && checks >5){
+                                      Ardublockly.alertMessage(
+                                        "Glückwunsch. Alles Richtig",
+                                        "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
+                                        false);
+                                        medalearned=true
+                                        tut5="Bronze"
+                                    }
+                                    else{
+                                      Ardublockly.alertMessage(
+                                        "Glückwunsch. Alles Richtig",
+                                        "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
+                                        false);
+                                        medalearned=true
+                                        tut5="Silber"
+                                    }
                                   }
-                                  else if(hints>2 && checks >5){
-                                    Ardublockly.alertMessage(
-                                      "Glückwunsch. Alles Richtig",
-                                      "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
-                                      false);
-                                      medalearned=true
-                                      tut5="Bronze"
+                                else if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_<AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_==">" ||
+                                        AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_<AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_=="≥"){
+                                    if(hints<=2 && checks<5){
+                                      Ardublockly.alertMessage(
+                                        "Glückwunsch. Alles Richtig",
+                                        "Du hast dir eine Goldmedallie erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
+                                        false);
+                                        medalearned=true
+                                        tut5="Gold"
+                                    }
+                                    else if(hints>2 && checks >5){
+                                      Ardublockly.alertMessage(
+                                        "Glückwunsch. Alles Richtig",
+                                        "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
+                                        false);
+                                        medalearned=true
+                                        tut5="Bronze"
+                                    }
+                                    else{
+                                      Ardublockly.alertMessage(
+                                        "Glückwunsch. Alles Richtig",
+                                        "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
+                                        false);
+                                        medalearned=true
+                                        tut5="Silber"
+                                    }
                                   }
-                                  else{
-                                    Ardublockly.alertMessage(
-                                      "Glückwunsch. Alles Richtig",
-                                      "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
-                                      false);
-                                      medalearned=true
-                                      tut5="Silber"
-                                  }
-                                }
                                 else{
                                   Ardublockly.alertMessage(
-                                    "Du hast breits eine Medaille verdient",
-                                    "Gehe jetzt weiter zum Fazit",
-                                    false);
-                                }
-                              }
-                              else if(AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_<AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_==">" ||
-                                      AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[0].outputConnection.x_<AllBlocks[0].childBlocks_[0].childBlocks_[0].childBlocks_[1].outputConnection.x_ && AllBlocks[0].childBlocks_[0].childBlocks_[0].inputList[1].fieldRow[0].text_=="≥"){
-                                if(medalearned==false){
-                                  if(hints<=2 && checks<5){
-                                    Ardublockly.alertMessage(
-                                      "Glückwunsch. Alles Richtig",
-                                      "Du hast dir eine Goldmedallie erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
-                                      false);
-                                      medalearned=true
-                                      tut5="Gold"
-                                  }
-                                  else if(hints>2 && checks >5){
-                                    Ardublockly.alertMessage(
-                                      "Glückwunsch. Alles Richtig",
-                                      "Du hast dir eine Bronzemedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
-                                      false);
-                                      medalearned=true
-                                      tut5="Bronze"
-                                  }
-                                  else{
-                                    Ardublockly.alertMessage(
-                                      "Glückwunsch. Alles Richtig",
-                                      "Du hast dir eine Silbermedaille erarbeitet <br> Jetzt einfach nur noch hochladen und zum Fazit gehen",
-                                      false);
-                                      medalearned=true
-                                      tut5="Silber"
-                                  }
-                                }
-                                else{
-                                  Ardublockly.alertMessage(
-                                    "Du hast breits eine Medaille verdient",
-                                    "Gehe jetzt weiter zum Fazit",
+                                    "Die Eigenschaft des Logic-Compare Blocks ist falsch",
                                     false);
                                 }
                               }
                               else{
                                 Ardublockly.alertMessage(
-                                  "Die Eigenschaft des Logic-Compare Blocks ist falsch",
+                                  "Der Math-Number Block hat die falschen Eigenschaften",
                                   false);
                               }
                             }
                             else{
                               Ardublockly.alertMessage(
-                                "Der Math-Number Block hat die falschen Eigenschaften",
+                                "Fehlender/Falscher siebter Block",
                                 false);
                             }
                           }
                           else{
                             Ardublockly.alertMessage(
-                              "Fehlender/Falscher siebter Block",
+                              "Der LUX-Sensorwert hat die falschen Eigenschaften",
                               false);
                           }
                         }
                         else{
                           Ardublockly.alertMessage(
-                            "Der LUX-Sensorwert hat die falschen Eigenschaften",
+                            "Fehlender/Falscher sechster Block",
                             false);
                         }
                       }
                       else{
                         Ardublockly.alertMessage(
-                          "Fehlender/Falscher sechster Block",
+                          "Der 2.Sensebox_LED Block hat die falschen Eigenschaften(Pin oder Status)",
                           false);
                       }
                     }
                     else{
                       Ardublockly.alertMessage(
-                        "Der 2.Sensebox_LED Block hat die falschen Eigenschaften(Pin oder Status)",
+                        "Fehlender/Falscher fünfter Block (am ELSE-Block hängend)",
                         false);
                     }
                   }
                   else{
                     Ardublockly.alertMessage(
-                      "Fehlender/Falscher fünfter Block (am ELSE-Block hängend)",
+                      "Der 1.Sensebox_LED Block hat die falschen Eigenschaften(Pin oder Status)",
                       false);
                   }
                 }
                 else{
                   Ardublockly.alertMessage(
-                    "Der 1.Sensebox_LED Block hat die falschen Eigenschaften(Pin oder Status)",
+                    "Fehlender/Falscher vierter Block (am DO-Block hängend)",
                     false);
                 }
               }
               else{
                 Ardublockly.alertMessage(
-                  "Fehlender/Falscher vierter Block (am DO-Block hängend)",
+                  "Fehlender/Falscher dritter Block (am IF-Block hängend)",
                   false);
               }
             }
             else{
               Ardublockly.alertMessage(
-                "Fehlender/Falscher dritter Block (am IF-Block hängend)",
+                "Die If Verzweigung hat die falschen Eigenschaften(Siehe Tipp rechts)",
                 false);
             }
           }
           else{
             Ardublockly.alertMessage(
-              "Die If Verzweigung hat die falschen Eigenschaften(Siehe Tipp rechts)",
+              "Falscher zweiter Block",
               false);
           }
         }
         else{
           Ardublockly.alertMessage(
-            "Falscher zweiter Block",
+            "Bitte Blöcke in den Loop einfügen",
             false);
         }
       }
       else{
         Ardublockly.alertMessage(
-          "Bitte Blöcke in den Loop einfügen",
+          "zu viele aktive Blöcke",
           false);
       }
     }
     else{
       Ardublockly.alertMessage(
-        "zu viele aktive Blöcke",
+        "Bitte Blöcke einfügen",
+        "Wenn du den lila Block gelöscht hast, einfach neu laden",
         false);
-    }
+    } 
   }
   else{
     Ardublockly.alertMessage(
-      "Bitte Blöcke einfügen",
-      "Wenn du den lila Block gelöscht hast, einfach neu laden",
+      "Du hast breits eine Medaille verdient",
+      "Lade deinen Code hoch und starte bitte das nächste Tutorial",
       false);
-  } 
+  }
+  
 usedBlocks=0    
 checks=checks+1
 document.getElementById('checks').textContent = checks            
